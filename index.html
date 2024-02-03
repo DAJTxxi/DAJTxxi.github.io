@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio IMC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body style="background-color:rgb(251, 253, 249); width:1000px; margin: 0 auto">
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+            <li><a href='./'>Home</a></li>
+            <li><a href='./informacion.html'>Información</a></li>
+            <li><a href='./prevencion.html'>Prevención </a></li>
+            <li><a href='./calculo.html'>IMC</a></li>
+        </ul>
+    </nav>
+    <script>
+        function updatemenu() {
+            if (document.getElementById('responsive-menu').checked == true) {
+                document.getElementById('menu').style.borderBottomRightRadius = '0';
+                document.getElementById('menu').style.borderBottomLeftRadius = '0';
+            } else {
+                document.getElementById('menu').style.borderRadius = '20px';
+            }
+        }
+    </script>
+
+
+
+    <center>
+        <h1>Índice de masa corporal (IMC)</h1>
+    </center>
+    <left>
+        <h2>¿Qué es?</h2>
+    </left>
+    <p text-align:justify; style="color: black; font-family: Arial, Helvetica, sans-serif; font-size: 20px">El IMC o
+        índice de masa corporal es un valor usado para determinar si una persona tiene un peso
+        saludable en relación con su estatura. Se puede calcular como
+        la masa corporal dividida por el cuadrado de
+        la altura y se expresa en kg/m2.</p>
+    <center><img src="imagen 1.png"> </center>
+    <footer>
+        <p style="color:black; font-size: 30px">
+            DAJT
+            <span>
+                XXI
+            </span>
+        </p>
+    </footer>
+</body>
+
+</html>

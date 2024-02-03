@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio IMC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body style="background-color:rgb(251, 253, 249); width: 1000px; margin: 0 auto">
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+            <li><a href='./'>Home</a></li>
+            <li><a href='./informacion.html'>Información</a></li>
+            <li><a href='./prevencion.html'>Prevención </a></li>
+            <li><a href='./calculo.html'>IMC</a></li>
+        </ul>
+    </nav>
+    <header class="d-flex">
+        <span class="icon-calc"></span>
+        <center>
+            <h1>Calculo del IMC</h1>
+        </center>
+    </header>
+    <section class="content">
+        <div class="input">
+            <label for="peso"> Introduzca peso </label>
+            <input type="number" id="peso" value="">
+        </div>
+        <div class="input">
+            <label for="altura">Introduzca altura</label>
+            <input type="number" id="altura" value="">
+        </div>
+        <article class="d-flex">
+            <div class="card">
+                <p class="titulo">
+                    Resultado:
+                </p>
+                <p class="subtitulo" id="textalert"></p>
+            </div>
+        </article>
+        <section>
+            <a class="my-button" href="#" ; onclick="ejecutar()">Calcular</a>
+        </section>
+    </section>
+</body>
+<script>
+    function calcularimc(peso, altura) {
+        const textalert = document.getElementById("textalert")
+        const resultImg = document.getElementById("resultImg")
+        let imc = peso / (altura * altura);  // let declara una variable y le asigna un valor con =
+        if (imc < 16) {      //ejemplo de condicional anidado
+            textalert.innerHTML = 'Infrapeso: Delgadez Severa';
+            resultImg.setAttribute("src", "/imagenes/flaca.png")
+        }
+        else if (16 <= imc && imc <= 16.99) {   //  && es un operador lógico equivalente a AND
+            textalert.innerHTML = 'Infrapeso: Delgadez moderada';    // en textalert se muestra el resultado correspondiente
+            resultImg.setAttribute("src", "/imagenes/flaca.png")
+        }
+        else if (17 <= imc && imc <= 18.49) {
+            textalert.innerHTML = 'Infrapeso: Delgadez aceptable';
+            resultImg.setAttribute("src", "/imagenes/delgada.png")
+        }
+        else if (18.50 <= imc && imc <= 24.99) {
+            textalert.innerHTML = 'Peso Normal';
+            resultImg.setAttribute("src", "/imagenes/delgada.png")
+        }
+        else if (25.00 <= imc && imc <= 29.99) {
+            textalert.innerHTML = 'Sobrepeso';
+            resultImg.setAttribute("src", "/imagenes/pesoaceptable.png")
+        }
+        else if (30.00 <= imc && imc <= 34.99) {
+            textalert.innerHTML = 'Obeso: Tipo I';
+            resultImg.setAttribute("src", "/imagenes/gorda.png")
+        }
+        else if (35.00 <= imc && imc <= 40.00) {
+            textalert.innerHTML = 'Obeso: Tipo II';
+            resultImg.setAttribute("src", "/imagenes/gorda.png")
+        }
+        else if (imc > 40.00) {
+            textalert.innerHTML = 'Obeso: Tipo III';
+            resultImg.setAttribute("src", "/imagenes/gorda.png")
+        }
+    }
+    function ejecutar() {
+        const peso = document.getElementById("peso").value
+        const altura = document.getElementById("altura").value
+        const textalert = document.getElementById("textalert")
+        if (peso > 1 && altura > 1) {
+            calcularimc(peso, altura)
+        }
+        else {
+            textalert.innerHTML = 'Ingresa primero tus valores'
+            resultImg.setAttribute("src", "/imagenes/silueta.png")
+        }
+    }
+</script>
+
+</html>
